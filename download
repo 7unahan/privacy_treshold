@@ -1,0 +1,39 @@
+# data and weights never enter this repository
+*.png
+*.jpg
+*.jpeg
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+data/
+weights/
+assets/models/
+
+# large measurement outputs go to a Release, not to git
+*.npz
+!results/**/*.npz
+
+# credentials
+.env
+*.key
+secrets*.json
+kaggle.json
+
+# python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# latex
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.synctex.gz
+
+# os
+.DS_Store

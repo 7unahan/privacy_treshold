@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper."
+title: "Wrong Input, Wrong Threshold: measurement code"
+authors:
+  - family-names: "Parlayici"
+    given-names: "Tunahan"
+    affiliation: "Sabanci University"
+  - family-names: "Aptoula"
+    given-names: "Erchan"
+    affiliation: "Sabanci University"
+  - family-names: "Saygin"
+    given-names: "Yucel"
+    affiliation: "Sabanci University"
+license: MIT
+repository-code: "https://github.com/7unahan/privacy_treshold"
+preferred-citation:
+  type: article
+  title: "Wrong Input, Wrong Threshold: Re-evaluating Adversarial Facial Privacy with a Threshold-Free Measure"
+  authors:
+    - family-names: "Parlayici"
+      given-names: "Tunahan"
+    - family-names: "Aptoula"
+      given-names: "Erchan"
+    - family-names: "Saygin"
+      given-names: "Yucel"
+  year: 2026
