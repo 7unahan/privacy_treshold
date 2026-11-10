@@ -1,7 +1,7 @@
 # Wrong Input, Wrong Threshold
 
 Measurement code for *Wrong Input, Wrong Threshold: Re-evaluating Adversarial
-Facial Privacy with a Threshold-Free Measure*.
+Facial Privacy*.
 
 Published adversarial facial-privacy methods report protection above 90%
 against black-box recognizers. That number comes from an evaluation protocol
@@ -31,13 +31,16 @@ This repository exists so that none of the three has to be taken on trust.
 | path | what |
 |---|---|
 | `src/dcos.py` | the threshold-free measure, with the algebraic self-check |
+| `src/front_ends.py` | the two front ends, `P_dir` (whole image) and `P_ali` (detect, align, crop), with a geometry self-test |
+| `src/calibrate.py` | thresholds calibrated per front end, and the false-accept rate a given constant produces |
 | `src/constants.py` | every measurement constant, in one place |
 | `survey/front_ends.csv` | Table I as data: what 13 released codebases do at evaluation time, with the commit each was read at |
 | `docs/REPRODUCTION.md` | which script produces which table and figure |
 
-Still to land: the two front-end operators, the threshold calibration script,
-the pipeline-aware remedy, and the stored measurement outputs. See
-`docs/REPRODUCTION.md` for the current state.
+Still to land: the script that embeds a clean set and writes the thresholds,
+the attack scripts (including the pipeline-aware remedy, which optimises
+through `P_ali`), the budget and regression checks, and the stored
+measurement outputs. See `docs/REPRODUCTION.md` for the current state.
 
 ## The measure, in one minute
 
@@ -57,7 +60,8 @@ longer matches its own identity, `sim < tau`, so a lower cosine is better
 protection. Therefore **`Delta cos < 0` means the whole-image protocol
 overstates protection**, and `> 0` means it understates it.
 
-Run `python src/dcos.py` for a self-test on synthetic data. It needs no
+Run `python src/dcos.py`, `python src/front_ends.py` and
+`python src/calibrate.py` for self-tests on synthetic data. They need no
 dataset and no model weights.
 
 ## Why there is a self-check in a twenty-line function
