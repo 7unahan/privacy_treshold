@@ -11,9 +11,10 @@ they can land.
 | threshold-free measure + self-check (`src/dcos.py`) | **in** |
 | measurement constants (`src/constants.py`) | **in** |
 | survey of 13 released codebases (`survey/front_ends.csv`) | **in** |
-| the two front-end operators `P_dir` and `P_ali` | pending |
-| threshold calibration at FAR=1% per front end | pending |
-| pipeline-aware remedy (differentiable alignment operator) | pending |
+| the two front-end operators `P_dir` and `P_ali` (`src/front_ends.py`) | **in**, geometry self-tested; torch sampling check runs where torch is installed |
+| threshold calibration at FAR=1% per front end (`src/calibrate.py`) | **in**, self-tested on synthetic embeddings |
+| script that embeds a clean set and writes the calibrated thresholds | pending |
+| pipeline-aware remedy (an attack optimised through `P_ali`) | operator **in** (`P_ali` is differentiable); attack script pending |
 | budget and regression checks | pending |
 | stored measurement outputs | pending |
 
@@ -42,13 +43,17 @@ there to reproduce published numbers, not to score new ones.
 | paper | produced by | notes |
 |---|---|---|
 | Table I (survey) | `survey/front_ends.csv` | read from code at the listed commits |
-| Table II (budget and dataset sweeps) | pending | MI-FGSM, FFHQ N=300 and three datasets N=150 |
+| Table II (budget and dataset sweeps) | pending | panel (a): MI-FGSM budget sweep, FFHQ N=300, freshly generated. Panel (b): stored sets, FFHQ N=1000, CelebA-HQ and LADN N=150. The panels are separate runs and are read within, not across. |
 | Table III (K1 per protection) | pending | both front ends, thresholds calibrated per pipeline |
-| Table IV (inherited thresholds) | pending | false-accept rate of the four constants on each front end |
-| Table V (identity gallery) | pending | re-scoring against other photographs of the same subject |
-| Table VI (three unseen modern recognizers) | pending | no attack used these as a surrogate |
+| Table IV (telescoping decomposition) | pending | FFHQ N=300. Each column adds one element of the deployed front end; marginal contributions in that order, each configuration scored at its own FAR=1% threshold |
+| Table V (inherited thresholds) | `src/calibrate.py` + pending embedding script | false-accept rate of the four constants on each front end |
+| Table VI (2x2 control) | pending | budget map (uniform or face-weighted) crossed with the resolution the perturbation is optimised at (S=256 or S=64). Equal mean budget, not equal peak. |
+| Table VII (identity gallery) | pending | re-scoring against other photographs of the same subject |
+| Table VIII (three unseen modern recognizers) | pending | no attack used these as a surrogate |
 | Figure 1 (teaser) | pending | |
 | Figure 2 (two mechanisms) | pending | frequency panel and scale panel |
+
+Table numbers follow the submitted manuscript (IEEE TIFS format).
 
 ## Data
 
