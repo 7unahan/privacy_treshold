@@ -2,8 +2,7 @@
 dcos.py - the threshold-free measure of the protocol gap.
 
 Companion code for:
-  Wrong Input, Wrong Threshold: Re-evaluating Adversarial Facial Privacy
-  with a Threshold-Free Measure.
+  Wrong Input, Wrong Threshold: Re-evaluating Adversarial Facial Privacy.
 
 Why this file exists
 --------------------
